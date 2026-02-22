@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Habitat Slots Optimizer</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="chart.js"></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="card">
+        <h1>Habitat Slots Optimizer</h1>
+        <p class="sub">
+          Computes minimum total cost (unlock + habitat capacity cost) to reach
+          target slots.
+        </p>
+        <div class="grid">
+          <div>
+            <label>Target slots</label>
+            <input
+              id="targetSlots"
+              type="number"
+              min="1"
+              max="696"
+              value="120"
+            />
+          </div>
+          <div>
+            <label>Capacity 1 cost (base)</label>
+            <input id="c1" type="number" min="0" value="200" />
+          </div>
+          <div>
+            <label>Capacity 2 upgrade (add-on)</label>
+            <input id="c2" type="number" min="0" value="500" />
+          </div>
+          <div>
+            <label>Capacity 3 upgrade (add-on)</label>
+            <input id="c3" type="number" min="0" value="50000" />
+          </div>
+        </div>
+        <div class="grid" style="margin-top: 10px">
+          <div>
+            <label>Capacity 4 upgrade (add-on)</label>
+            <input id="c4" type="number" min="0" value="500000" />
+          </div>
+          <div>
+            <label>Max slots to graph</label>
+            <input
+              id="graphMaxSlots"
+              type="number"
+              min="10"
+              max="696"
+              value="300"
+            />
+          </div>
+        </div>
+        <button id="recalc">Recalculate</button>
+        <div id="status" class="note"></div>
+        <div class="result">
+          <div class="pill">
+            <div class="k">Best total cost</div>
+            <div id="rCost" class="v">-</div>
+          </div>
+          <div class="pill">
+            <div class="k">Habitats to unlock</div>
+            <div id="rHabs" class="v">-</div>
+          </div>
+          <div class="pill">
+            <div class="k">Unlock cost used</div>
+            <div id="rUnlock" class="v">-</div>
+          </div>
+          <div class="pill">
+            <div class="k">Build/upgrade cost used</div>
+            <div id="rBuild" class="v">-</div>
+          </div>
+        </div>
+        <div id="rMix" class="note"></div>
+      </div>
+
+      <div class="card">
+        <canvas id="chart"></canvas>
+      </div>
+    </div>
+  </body>
+</html>
